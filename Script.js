@@ -69,9 +69,10 @@ function displayResults(weather) {
   let city = document.querySelector(".location .city");
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
-  let now = new Date();
-  let date = document.querySelector(".current .temp");
-  date.innerText = dateBuilder(now);
+  let now = moment();
+  let today = moment(now).format("LLLL");
+  let date = document.querySelector(".date");
+  date.innerText = today;
 
   let temp = document.querySelector(".current .temp");
   temp.innerHTML = `${Math.round(weather.main.temp)} <span>°C<span>`;
